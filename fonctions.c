@@ -7,6 +7,17 @@ extern struct utilisateur tabutil[];
 extern int nombre_utilisateurs_deja_enregistres;
 extern struct gestionnaire tabgest[];
 extern int nbregest;
+
+void print1Util(int i)
+{
+        printf("\ntabutil[%d]\n", i);
+        printf("\t.nom=%s\n",tabutil[i].nom);
+        printf("\t.numdossier=%d\n",tabutil[i].numdossier);
+        printf("\t.mdp=%s\n",tabutil[i].mdp);
+        printf("\t.voiture=%s\n",tabutil[i].voiture);
+        printf("\t.station=%s\n",tabutil[i].station);
+}
+
 void printUtil()
 {
     int i;
@@ -14,12 +25,7 @@ void printUtil()
     printf("nombre_utilisateurs_deja_enregistres =%d",nombre_utilisateurs_deja_enregistres);
     for(i=0; i<nombre_utilisateurs_deja_enregistres; i++)
     {
-        printf("\ntabutil[%d]\n", i);
-        printf("\t.nom=%s\n",tabutil[i].nom);
-        printf("\t.numdossier=%d\n",tabutil[i].numdossier);
-        printf("\t.mdp=%s\n",tabutil[i].mdp);
-        printf("\t.voiture=%s\n",tabutil[i].voiture);
-        printf("\t.station=%s\n",tabutil[i].station);
+        print1Util(i);
     }
 }
 

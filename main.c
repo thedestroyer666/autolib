@@ -27,7 +27,7 @@ int main()
     char nom_temp[taille];
 
     char mdp_temp[taille];
-    int choixUtil;
+    char choixUtil;
     char junk;
 
 
@@ -87,16 +87,46 @@ int main()
                 tabutil[nombre_utilisateurs_deja_enregistres].numdossier = 100+nombre_utilisateurs_deja_enregistres;
                 nombre_utilisateurs_deja_enregistres++;
                 printUtil();
+                utilindex = nombre_utilisateurs_deja_enregistres;
             }
 
 
             scanf("%c",&junk); // purge le buffer de scanf
-            printf("Que voulez vous faire ?\n a) Louer un vehicule\n b) rendre un vehicule\n c) consulter mon statut\n");
+            printf("Que voulez vous faire ?\n a) Louer un vehicule\n b) rendre un vehicule\n c) consulter mon statut\n d) je sors\n");
             scanf("%c",&choixUtil);
-            printf("%c\n",choixUtil);
+            printf("-%c-\n",choixUtil);
 
-            if (choixUtil='a') {
+            if (choixUtil=='a')  //verifier si il y a une voiture de disponible dans la station
+            {
+                //sinon ben il est baisé
+                //l'attribuer a l'utilisateur
 
+            }
+            else if (choixUtil=='b')
+            {
+                //demander le temps du trajet
+                //demander la station
+                //verifier qu'il y a de la place
+                //sinon chercher la place la plus proche
+                //afficher le prix et le deduire du compte
+
+
+            }
+            else if (choixUtil=='c')
+            {
+
+                //afficher les informations de l'utilisateurs
+                print1Util(utilindex);
+            }
+            else if (choixUtil=='d')
+            {
+                printf("%c Je sors\n",choixUtil);
+                return 0;
+
+            }
+            else
+            {
+                printf("%c recommencer\n",choixUtil);
             }
 
 
