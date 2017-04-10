@@ -15,9 +15,11 @@ void printUtil()
     for(i=0; i<nombre_utilisateurs_deja_enregistres; i++)
     {
         printf("\ntabutil[%d]\n", i);
-       printf("tabutil[i].nom=%s\n",tabutil[i].nom);
-        printf("tabutil[i].numdossier=%d\n",tabutil[i].numdossier);
-        printf("tabutil[i].mdp=%s\n",tabutil[i].mdp);
+        printf("\t.nom=%s\n",tabutil[i].nom);
+        printf("\t.numdossier=%d\n",tabutil[i].numdossier);
+        printf("\t.mdp=%s\n",tabutil[i].mdp);
+        printf("\t.voiture=%s\n",tabutil[i].voiture);
+        printf("\t.station=%s\n",tabutil[i].station);
     }
 }
 
@@ -29,7 +31,7 @@ void printGest()
     for(i=0; i<nbregest; i++)
     {
         printf("\ntabgest[%d]\n", i);
-       printf("tabgest[i].nomgest=%s\n",tabgest[i].nomgest);
+        printf("tabgest[i].nomgest=%s\n",tabgest[i].nomgest);
         printf("tabgest[i].service=%d\n",tabgest[i].service);
     }
 }
@@ -78,6 +80,8 @@ void init_utils_et_stations()
     strcpy(&tabutil[nombre_utilisateurs_deja_enregistres].nom,"toto");
     tabutil[nombre_utilisateurs_deja_enregistres].numdossier = 65;
     strcpy(&tabutil[nombre_utilisateurs_deja_enregistres].mdp,"cool");
+    tabutil[nombre_utilisateurs_deja_enregistres].station=0;
+    tabutil[nombre_utilisateurs_deja_enregistres].voiture=0;
     nombre_utilisateurs_deja_enregistres++;
     printUtil();
 

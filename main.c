@@ -95,6 +95,12 @@ int main()
             scanf("%c",&choixUtil);
             printf("%c\n",choixUtil);
 
+            if (choixUtil='a') {
+
+            }
+
+
+
 
 
 
