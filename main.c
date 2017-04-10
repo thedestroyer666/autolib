@@ -88,13 +88,8 @@ int main()
             }
 
 
-            /*deja utilisateur
-             printf("numero de dossier ?\n");
-             scanf("%d",&(util.numdossier));
-             printf("rentrer votre mot de passe");
-             scanf("%s",&(util.mdp))
 
-             */
+          printf("Que voulez vous faire ?\n a) Louer un vehicule\n b) rendre un vehicule\n c) consulter mon statut\n");
 
 
 

@@ -55,7 +55,7 @@ int utilisateur_deja_enregistre(char *nom_test)
 void init_utils_et_stations()
 {
     tabstation[0].station=1;
-    tabstation[0].places=16;
+    tabstation[0].places=17;
     tabstation[0].nbrevoitures=16;
 
     tabstation[1].station=2;
