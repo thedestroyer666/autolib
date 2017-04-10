@@ -8,9 +8,12 @@ struct utilisateur tabutil[TAILLE_TABS];
 int nombre_utilisateurs_deja_enregistres = 0;
 struct gestionnaire tabgest[TAILLE_TABS];
 int nbregest = 0;
+int temps;//temps du trajet
+
 int main()
 {
     int cpt=10 ;
+    int temps=0 ;
     FILE *fichier;
     char nomFichier[30]="dossier_utilisateur.txt";
     fichier=fopen(nomFichier, "w");//pour ouvrir le fichier en mode écriture
@@ -26,9 +29,9 @@ int main()
     struct gestionnaire gest;
     char nom_temp[taille];
 
-    char mdp_temp[taille];
-    char choixUtil;
-    char junk;
+    char mdp_temp[taille];//mot de passe util
+    char choixUtil;//coix abcd de l'utilisateur
+    char junk;//pour debuguer car abcd caractères et enter aussi
 
 
     automobile.voiture=16;
@@ -98,89 +101,112 @@ int main()
             if (choixUtil=='a')
 
             {
-               printf("entrez le numero de la station\n");//demander la station
-               scanf("%d",&tabutil[utilindex].station);
+                printf("entrez le numero de la station\n");//demander la station
+                scanf("%d",&tabutil[utilindex].station);
 
-                if (tabstation[utilindex].nbrevoitures!=0){//verifier si il y a une voiture de disponible dans la station
+                if (tabstation[utilindex].nbrevoitures!=0) //verifier si il y a une voiture de disponible dans la station
+                {
 
                     tabstation[utilindex].nbrevoitures=tabstation[utilindex].nbrevoitures-1;
                     //l'attribuer a l'utilisateur
                     printf("une voiture vous a ete attribue\n");
                 }
 
-                else{
+                else
+                {
                     if(tabstation[utilindex+1].nbrevoitures!=0)
-                    printf("vous devez aller a la station %d\n",tabstation[utilindex+1].station);
+                    {
+                        printf("vous devez aller a la station %d\n",tabstation[utilindex+1].station);
+                    }
                 }
 
             }
             else if (choixUtil=='b')
             {
-                //demander le temps du trajet
-                //demander la station
-                //verifier qu'il y a de la place
-                //sinon chercher la place la plus proche
-                //afficher le prix et le deduire du compte
+                printf("bonjour, entrez le numero de la station\n");
+                scanf("%d",&tabutil[utilindex].station);//demander la station
+                if (tabstation[utilindex].places!=0) //verifier qu'il y a de la place
+                {
+
+                    printf("combien de temps avez vous mis ?\n en minutes :");//demander le temps du trajet
+                    scanf("%d",&temps);//afficher le prix et le deduire du compte
+                    if(temps<=30)
+                    {
+                        temps=0;
+                        printf("une facture de %d euro vous sera envoyee\n",temps);
+                    }
+                    else
+                    {
+                        printf("%d",temps);
+                        temps=(temps-30);
+                        printf("%d",temps);
+                        printf("une facture de %d euros vous sera envoyee\n",temps);
+                    }
+
+
+                }
+                    //sinon chercher la place la plus proche
+
+
+                }
+
+                else if (choixUtil=='c')
+                {
+
+                    //afficher les informations de l'utilisateurs
+                    print1Util(utilindex);
+                }
+                else if (choixUtil=='d')
+                {
+                    printf("%c Je sors\n",choixUtil);
+                    return 0;
+
+                }
+                else
+                {
+                    printf("%c recommencer\n",choixUtil);
+                }
+
+
+
+
 
 
             }
-            else if (choixUtil=='c')
+            else if (cpt==2)
             {
-
-                //afficher les informations de l'utilisateurs
-                print1Util(utilindex);
-            }
-            else if (choixUtil=='d')
-            {
-                printf("%c Je sors\n",choixUtil);
-                return 0;
+                //menu gestionnaire
+                printf("numero ?\n");
+                scanf("%d",&(gest.service));
 
             }
-            else
-            {
-                printf("%c recommencer\n",choixUtil);
-            }
+            /* else if (cpt==3)
+             {//cas annulé
 
-
-
-
+             }*/
 
 
         }
-        else if (cpt==2)
-        {
-            //menu gestionnaire
-            printf("numero ?\n");
-            scanf("%d",&(gest.service));
+        while ( cpt!=3);
 
-        }
-        /* else if (cpt==3)
-         {//cas annulé
+        //si utilisateur demander inscrit ou non inscrit
+        //si inscrit demander identifiant avec verif
 
-         }*/
-
-
-    }
-    while ( cpt!=3);
-
-    //si utilisateur demander inscrit ou non inscrit
-    //si inscrit demander identifiant avec verif
-
-    //si non inscrit création d'un compte avec verif
+        //si non inscrit création d'un compte avec verif
 
 //restitution, location de véhicule, modifications informations, consultation historique
-    // verification de la solde/abonnement
-    // si restitutiuon demander le nombre de place
-    //si plus de place chercher la station la plus proche avec une place libre
-    //si une place est libre attribuer la place a la voiture de l'utilisateur et arreter le comteur de temps
-    //si location demander le nombre de voitures
-    //si pas de voitures demander la station la plus proche avec une voiture libre
-    //si une voiture est libre attribuer la voiture a l'utilisateur  et demarrer un compteur de temps(compter 30mn)
-    //si modifications informations ou historique ou abonnement : acceder et modifier le compte
+        // verification de la solde/abonnement
+        // si restitutiuon demander le nombre de place
+        //si plus de place chercher la station la plus proche avec une place libre
+        //si une place est libre attribuer la place a la voiture de l'utilisateur et arreter le comteur de temps
+        //si location demander le nombre de voitures
+        //si pas de voitures demander la station la plus proche avec une voiture libre
+        //si une voiture est libre attribuer la voiture a l'utilisateur  et demarrer un compteur de temps(compter 30mn)
+        //si modifications informations ou historique ou abonnement : acceder et modifier le compte
 
 
 //si gestonnaire
-    // consulter et modifier comptes utilisateurs
-    //consulter et modifier nbre vehicules
-    //statistiques
-}
+        // consulter et modifier comptes utilisateurs
+        //consulter et modifier nbre vehicules
+        //statistiques
+    }

@@ -10,12 +10,12 @@ extern int nbregest;
 
 void print1Util(int i)
 {
-        printf("\ntabutil[%d]\n", i);
-        printf("\t.nom=%s\n",tabutil[i].nom);
-        printf("\t.numdossier=%d\n",tabutil[i].numdossier);
-        printf("\t.mdp=%s\n",tabutil[i].mdp);
-        printf("\t.voiture=%d\n",tabutil[i].voiture);
-        printf("\t.station=%d\n",tabutil[i].station);
+    printf("\ntabutil[%d]\n", i);
+    printf("\t.nom=%s\n",tabutil[i].nom);
+    printf("\t.numdossier=%d\n",tabutil[i].numdossier);
+    printf("\t.mdp=%s\n",tabutil[i].mdp);
+    printf("\t.voiture=%d\n",tabutil[i].voiture);
+    printf("\t.station=%d\n",tabutil[i].station);
 }
 
 void printUtil()
