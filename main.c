@@ -27,6 +27,8 @@ int main()
     char nom_temp[taille];
 
     char mdp_temp[taille];
+    int choixUtil;
+    char junk;
 
 
     automobile.voiture=16;
@@ -88,8 +90,10 @@ int main()
             }
 
 
-
-          printf("Que voulez vous faire ?\n a) Louer un vehicule\n b) rendre un vehicule\n c) consulter mon statut\n");
+            scanf("%c",&junk); // purge le buffer de scanf
+            printf("Que voulez vous faire ?\n a) Louer un vehicule\n b) rendre un vehicule\n c) consulter mon statut\n");
+            scanf("%c",&choixUtil);
+            printf("%c\n",choixUtil);
 
 
 
