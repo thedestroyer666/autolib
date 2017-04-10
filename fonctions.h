@@ -38,7 +38,7 @@ struct station
 };
 struct gestionnaire
 {
-
+    char nomgest[taille];
     int service;
 };
 

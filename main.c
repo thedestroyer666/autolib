@@ -6,7 +6,8 @@
 struct station tabstation[TAILLE_TABS];
 struct utilisateur tabutil[TAILLE_TABS];
 int nombre_utilisateurs_deja_enregistres = 0;
-
+struct gestionnaire tabgest[TAILLE_TABS];
+int nbregest = 0;
 int main()
 {
     int cpt=10 ;

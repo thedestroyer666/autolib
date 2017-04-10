@@ -5,8 +5,8 @@
 extern struct station tabstation[];
 extern struct utilisateur tabutil[];
 extern int nombre_utilisateurs_deja_enregistres;
-extern
-
+extern struct gestionnaire tabgest[];
+extern int nbregest;
 void printUtil()
 {
     int i;
@@ -18,6 +18,19 @@ void printUtil()
        printf("tabutil[i].nom=%s\n",tabutil[i].nom);
         printf("tabutil[i].numdossier=%d\n",tabutil[i].numdossier);
         printf("tabutil[i].mdp=%s\n",tabutil[i].mdp);
+    }
+}
+
+void printGest()
+{
+    int i;
+    printf("\n%s-%d printGest\n",__FILE__,__LINE__);
+    printf("nombre de gestionnaire =%d",nbregest);
+    for(i=0; i<nbregest; i++)
+    {
+        printf("\ntabgest[%d]\n", i);
+       printf("tabgest[i].nomgest=%s\n",tabgest[i].nomgest);
+        printf("tabgest[i].service=%d\n",tabgest[i].service);
     }
 }
 
@@ -66,14 +79,14 @@ void init_utils_et_stations()
     tabutil[nombre_utilisateurs_deja_enregistres].numdossier = 65;
     strcpy(&tabutil[nombre_utilisateurs_deja_enregistres].mdp,"cool");
     nombre_utilisateurs_deja_enregistres++;
-    strcpy(&tabutil[nombre_utilisateurs_deja_enregistres].nom,"stella");
-    strcpy(&tabutil[nombre_utilisateurs_deja_enregistres].mdp,"cool");
-    tabutil[nombre_utilisateurs_deja_enregistres].numdossier = 99;
-    nombre_utilisateurs_deja_enregistres++;
-    strcpy(&tabutil[nombre_utilisateurs_deja_enregistres].nom,"ulysse");
-    strcpy(&tabutil[nombre_utilisateurs_deja_enregistres].mdp,"pascool");
-    tabutil[nombre_utilisateurs_deja_enregistres].numdossier = 97;
-    nombre_utilisateurs_deja_enregistres++;
     printUtil();
 
+    nbregest=0;
+    strcpy(&tabgest[nbregest].nomgest,"stella");
+    tabgest[nbregest].service = 665;
+    nbregest++;
+    strcpy(&tabgest[nbregest].nomgest,"ulysse");
+    tabgest[nbregest].service = 666;
+    nbregest++;
+    printGest();
 }
