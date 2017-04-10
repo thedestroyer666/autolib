@@ -74,7 +74,7 @@ int main()
                 }
                 else
                 {
-                    printf("  :( C'est pas toi!\n");
+                    return 0;
                 }
             }
             else
@@ -114,37 +114,53 @@ int main()
 
                 else
                 {
-                    if(tabstation[utilindex+1].nbrevoitures!=0)
-                    {
-                        printf("vous devez aller a la station %d\n",tabstation[utilindex+1].station);
-                    }
-                }
+                    int cptstation;
+                    int distancetampon;
+                    int distanceminimum;
+                    int indexminimum;
+                    distanceminimum=666;
+                    indexminimum=666;
 
+                    for(cptstation=0;cptstation<5;cptstation++){//trouver la plus courte distance entre l'utilisateur et une voiture
+                        if(tabstation[cptstation].nbrevoitures!=0)
+                        {
+                            distancetampon=abs(tabstation[cptstation].station-tabstation[utilindex].station);
+                            if(distancetampon<distanceminimum)
+                            {
+                                distanceminimum=distancetampon;
+                                indexminimum=cptstation;
+                            }
+                        }
+
+
+                        }  printf("vous devez aller a la station %d\n",tabstation[indexminimum].station);
+
+                }
             }
-            else if (choixUtil=='b')
-            {
-                printf("bonjour, entrez le numero de la station\n");
-                scanf("%d",&tabutil[utilindex].station);//demander la station
-                if (tabstation[utilindex].places!=0) //verifier qu'il y a de la place
+                else if (choixUtil=='b')
                 {
-
-                    printf("combien de temps avez vous mis ?\n en minutes :");//demander le temps du trajet
-                    scanf("%d",&temps);//afficher le prix et le deduire du compte
-                    if(temps<=30)
+                    printf("bonjour, entrez le numero de la station\n");
+                    scanf("%d",&tabutil[utilindex].station);//demander la station
+                    if (tabstation[utilindex].places!=0) //verifier qu'il y a de la place
                     {
-                        temps=0;
-                        printf("une facture de %d euro vous sera envoyee\n",temps);
-                    }
-                    else
-                    {
-                        printf("%d",temps);
-                        temps=(temps-30);
-                        printf("%d",temps);
-                        printf("une facture de %d euros vous sera envoyee\n",temps);
-                    }
+
+                        printf("combien de temps avez vous mis ?\n en minutes :");//demander le temps du trajet
+                        scanf("%d",&temps);//afficher le prix et le deduire du compte
+                        if(temps<=30)
+                        {
+                            temps=0;
+                            printf("une facture de %d euro vous sera envoyee\n",temps);
+                        }
+                        else
+                        {
+                            printf("%d",temps);
+                            temps=(temps-30);
+                            printf("%d",temps);
+                            printf("une facture de %d euros vous sera envoyee\n",temps);
+                        }
 
 
-                }
+                    }
                     //sinon chercher la place la plus proche
 
 

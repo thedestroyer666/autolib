@@ -68,11 +68,11 @@ void init_utils_et_stations()
 
     tabstation[1].station=2;
     tabstation[1].places=16;
-    tabstation[1].nbrevoitures=1;
+    tabstation[1].nbrevoitures=0;
 
     tabstation[2].station=3;
     tabstation[2].places=16;
-    tabstation[2].nbrevoitures=1;
+    tabstation[2].nbrevoitures=0;
 
     tabstation[3].station=4;
     tabstation[3].places=16;
@@ -100,3 +100,10 @@ void init_utils_et_stations()
     nbregest++;
     printGest();
 }
+
+int abs(int distance)
+                            {
+                                if(distance < 0) distance=-distance;
+                                return distance;
+
+                            }
