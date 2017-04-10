@@ -94,12 +94,24 @@ int main()
             scanf("%c",&junk); // purge le buffer de scanf
             printf("Que voulez vous faire ?\n a) Louer un vehicule\n b) rendre un vehicule\n c) consulter mon statut\n d) je sors\n");
             scanf("%c",&choixUtil);
-            printf("-%c-\n",choixUtil);
 
-            if (choixUtil=='a')  //verifier si il y a une voiture de disponible dans la station
+            if (choixUtil=='a')
+
             {
-                //sinon ben il est baisé
-                //l'attribuer a l'utilisateur
+               printf("entrez le numero de la station\n");//demander la station
+               scanf("%d",&tabutil[utilindex].station);
+
+                if (tabstation[utilindex].nbrevoitures!=0){//verifier si il y a une voiture de disponible dans la station
+
+                    tabstation[utilindex].nbrevoitures=tabstation[utilindex].nbrevoitures-1;
+                    //l'attribuer a l'utilisateur
+                    printf("une voiture vous a ete attribue\n");
+                }
+
+                else{
+                    if(tabstation[utilindex+1].nbrevoitures!=0)
+                    printf("vous devez aller a la station %d\n",tabstation[utilindex+1].station);
+                }
 
             }
             else if (choixUtil=='b')
