@@ -70,7 +70,8 @@ int main()
                 if(strcmp(tabutil[utilindex].mdp,mdp_temp)==0)
                 {
                     printf("  :) C'est bien toi!\n");
-                    my_printInt(tabutil[utilindex].numdossier);
+                    //afficher les informations de l'utilisateurs
+                    print1Util(utilindex);
                 }
                 else
                 {
