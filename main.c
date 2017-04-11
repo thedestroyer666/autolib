@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "fonctions.h"
 
 
@@ -22,10 +23,10 @@ int main()
     fclose(fichier);//pour fermer le fichier
 
 
-    int tab[TAILLE_TABS][TAILLE_TABS];
+    //int tab[TAILLE_TABS][TAILLE_TABS];
 
     int numdossier;
-    struct voiture automobile;
+    //struct voiture automobile;
     struct gestionnaire gest;
     char nom_temp[taille];
 
@@ -34,7 +35,7 @@ int main()
     char junk;//pour debuguer car abcd caractères et enter aussi
 
 
-    automobile.voiture=16;
+    //automobile.voiture=16;
 
 
     init_utils_et_stations();
@@ -61,12 +62,12 @@ int main()
             //if(new dossier)
             numdossier=0;
             printf("Quel est votre nom ?\n");
-            scanf("%s",&(nom_temp));
+            scanf("%s",&(nom_temp[0]));
             utilindex = utilisateur_deja_enregistre(nom_temp);
             if(utilindex!=777)
             {
                 printf("tapez votre mot de passe?\n");
-                scanf("%s",&(mdp_temp));
+                scanf("%s",&(mdp_temp[0]));
                 if(strcmp(tabutil[utilindex].mdp,mdp_temp)==0)
                 {
                     printf("  :) C'est bien toi!\n");
@@ -83,11 +84,11 @@ int main()
                 printf("Nouvel utilisateur!\n");
 
                 printf("choisissez votre mot de passe?\n");
-                scanf("%s",&(mdp_temp));
+                scanf("%s",&(mdp_temp[0]));
                 printf("votre numero de dossier est %d",numdossier);
 
-                strcpy(&tabutil[nombre_utilisateurs_deja_enregistres].nom,nom_temp);
-                strcpy(&tabutil[nombre_utilisateurs_deja_enregistres].mdp,mdp_temp);
+                strcpy(&tabutil[nombre_utilisateurs_deja_enregistres].nom[0],nom_temp);
+                strcpy(&tabutil[nombre_utilisateurs_deja_enregistres].mdp[0],mdp_temp);
                 tabutil[nombre_utilisateurs_deja_enregistres].numdossier = 100+nombre_utilisateurs_deja_enregistres;
                 nombre_utilisateurs_deja_enregistres++;
                 printUtil();
