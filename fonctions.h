@@ -12,23 +12,27 @@
 #define TAILLE_TABS 7
 
 extern void init_utils_et_stations();
+extern void print1Util(int i);
 extern void printUtil();
 int utilisateur_deja_enregistre(char *nom_test);
+extern int abs(int distance);
 
 struct utilisateur
 {
 
-int numdossier;
-char nom[taille];
-int abonnement;
-char mdp[taille];
+    int numdossier;
+    char nom[taille];
+    int abonnement;//0=pasabo 1=abo
+    char mdp[taille];//mot de passe
+    int station;//station ou se trouve l'utilisateur
+    int voiture;//0=pieds 1=voiture
 };
 
 struct voiture
 {
     int voiture;
-    int etat;
-    int station;
+    int etat;//0=pas d'Utilisateur 1=Utilisateur
+    int station;// station ou se trouve la voiture, 0 si elle n'est pas dans une station
 };
 struct station
 {
